@@ -1,3 +1,4 @@
+/*
 package com.bookmark.resources;
 
 import io.dropwizard.testing.junit.ResourceTestRule;
@@ -26,3 +27,4 @@ public class HelloResourceTest {
         assertEquals(expected, actual);
     }
 }
+*/
