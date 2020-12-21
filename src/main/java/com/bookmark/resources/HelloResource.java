@@ -4,10 +4,12 @@ import com.bookmark.core.User;
 import com.bookmark.core.Users;
 import com.bookmark.db.JdbiEntityRepository;
 import io.dropwizard.auth.Auth;
+
 import javax.validation.Valid;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.List;
 
 @Path("/hello")
 public class HelloResource {
@@ -38,4 +40,12 @@ public class HelloResource {
         jdbiEntityRepository.addUser(user);
         return Response.Status.ACCEPTED;
     }
+
+    @GET
+    @Produces({MediaType.APPLICATION_JSON})
+    @Path("/{username}")
+    public List<Users> getUsers(@PathParam("username") String username) {
+        return jdbiEntityRepository.getUsersList(username);
+    }
+
 }
